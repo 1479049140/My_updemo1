@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace用于绑定dao接口的，即面向接口编程。而不是本xml文件在resource中的位置-->
+<!--？：与本xml文件对应的dao层接口的全类名-->
+<mapper namespace="com.offcn.Dao.maoyanDao">
+    <insert id="add" parameterType="maoyan">
+        insert into maoyan value(#{id},#{img},#{title},#{actor},#{date},#{score})
+    </insert>
+    <update id="update" parameterType="maoyan">
+        update maoyan set img=#{img} , title=#{title} , actor=#{actor} , date=#{date} , score=#{score}
+        where id = #{id}
+
+    </update>
+    <delete id="delete">
+        delete from maoyan where id = #{id}
+    </delete>
+    <select id="queryById" resultType="com.offcn.Bean.maoyan">
+        select  * from maoyan where id = #{id}
+    </select>
+</mapper>
